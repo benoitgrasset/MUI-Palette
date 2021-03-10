@@ -1,4 +1,4 @@
-# MUI_Palette
+# MUI Palette
 Color palette for theme
 
 ## Need to install: 
