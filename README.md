@@ -10,7 +10,7 @@ Color palette for theme
 
 
 example:
-```JSON
+```
 const theme = createMuiTheme({
   palette: {
     primary: {
