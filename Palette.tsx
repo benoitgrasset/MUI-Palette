@@ -1,7 +1,7 @@
 import React from "react"
 import clsx from "clsx"
 import { useStyles, useCardStyles } from "./Palette_style"
-import { Palette } from "@material-ui/core/styles/createPalette"
+import { Palette as MUIPalette } from "@material-ui/core/styles/createPalette"
 import { Theme, ColorFormat } from "@material-ui/core/styles"
 
 export type CardProps = { className?: string, color: string }
@@ -30,7 +30,7 @@ const Card: React.FunctionComponent<CardProps> = (props) => {
     )
 }
 
-// colorObject (KarrenPalette) type is not recursive
+// colorObject (Palette) type is not recursive
 const CardContainer: React.FunctionComponent<{ property: string, depth: number, colorObject: any }> = (props) => {
 
     const classes = useStyles()
@@ -66,7 +66,7 @@ const CardContainer: React.FunctionComponent<{ property: string, depth: number, 
 }
 
 
-const KarrenPalette: React.FunctionComponent<{ theme: Theme }> = (props) => {
+const Palette: React.FunctionComponent<{ theme: Theme }> = (props) => {
 
     const classes = useStyles()
     const { theme } = props
@@ -74,7 +74,7 @@ const KarrenPalette: React.FunctionComponent<{ theme: Theme }> = (props) => {
     return (
         <div className={classes.page}>
             {Object.keys(theme.palette).map((key, index) => {
-                const colorObject = theme.palette[key as keyof Palette]
+                const colorObject = theme.palette[key as keyof MUIPalette]
                 return (
                     <CardContainer key={index} property={key} depth={1} colorObject={colorObject} />
                 )
@@ -83,4 +83,4 @@ const KarrenPalette: React.FunctionComponent<{ theme: Theme }> = (props) => {
     )
 }
 
-export default KarrenPalette
+export default Palette
